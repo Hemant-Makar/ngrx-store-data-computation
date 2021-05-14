@@ -10,9 +10,9 @@ export const widgetFeature = createSelector(
 );
 
 export const getWidgetData = createSelector(
-  widgetFeature,
-  (widget, id: string) => {
-    return widget[id];
+  selectFeatureState,
+  (state: IState, id: string) => {
+    return state.data[id];
   }
 );
 export const getCount = createSelector(

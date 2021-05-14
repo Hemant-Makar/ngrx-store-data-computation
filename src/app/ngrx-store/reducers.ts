@@ -20,8 +20,7 @@ const liveDataReducer = createReducer(
   initialState,
   on(addWidgetData, (state, param: QueryParam) => {
     console.log(param);
-    const data = state.data;
-    data[param.key] = param.value;
+    var data = { ...state.data, [param.key]: param.value };
     const count = state.count + 1;
     return {
       ...state,

@@ -13,6 +13,9 @@ export class StoreDataService {
     return this.store.select(fromStore.getCount);
   }
 
+  public getWidgetData(dataTag: string): Observable<IMonitorData> {
+    return this.store.select(fromStore.getWidgetData, { id: dataTag });
+  }
   public setWidgetData(data: IMonitorData) {
     this.store.dispatch(addWidgetData({ key: data.id, value: data }));
   }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { IMonitorData } from '../models/imonitor-data';
 import { StoreDataService } from '../ngrx-store/store-data.service';
 
 @Component({
@@ -9,9 +10,11 @@ import { StoreDataService } from '../ngrx-store/store-data.service';
 })
 export class DataListenerComponent implements OnInit {
   public countObservable$: Observable<number>;
+  public dataAObservable$: Observable<IMonitorData>;
   constructor(private storeService: StoreDataService) {}
 
   ngOnInit() {
     this.countObservable$ = this.storeService.getCount();
+    this.dataAObservable$ = this.storeService.getWidgetData('A');
   }
 }
