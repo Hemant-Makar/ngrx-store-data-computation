@@ -22,20 +22,12 @@ const liveDataReducer = createReducer(
     const count = state.count + 1;
     const data = { ...state.data, [param.key]: param.value };
 
-    const widgetCache = state.cache;
-    var paramCache: Array<IMonitorData> = widgetCache[param.key];
+    var paramCache: Array<IMonitorData> = [];
+    Object.assign(paramCache, state.cache[param.key]);
 
-    if (paramCache === undefined) {
-      paramCache = [param.value];
-      console.log('if', caches);
-    } else {
-      const record = param.value;
-      paramCache.push(record);
-      console.log('else', paramCache.length);
-    }
-    const cache = { ...state.cache, [param.key]: caches };
-    console.log(cache);
-    // cache[param.value.id] = caches;
+    paramCache.push(param.value);
+
+    const cache = { ...state.cache, [param.key]: paramCache };
     return {
       ...state,
       count: count,
