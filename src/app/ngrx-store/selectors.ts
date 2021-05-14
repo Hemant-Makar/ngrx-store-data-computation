@@ -15,6 +15,13 @@ export const getWidgetData = createSelector(
     return state.data[id];
   }
 );
+
+export const getWidgetCacheData = createSelector(
+  selectFeatureState,
+  (state: IState, id: string) => {
+    return state.cache[id];
+  }
+);
 export const getCount = createSelector(
   selectFeatureState,
   (state: IState) => {
