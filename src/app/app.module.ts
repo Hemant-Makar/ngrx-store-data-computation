@@ -10,6 +10,7 @@ import { DataListenerComponent } from './data-listener/data-listener.component';
 import { DataGeneratorComponent } from './data-generator/data-generator.component';
 import { StoreModule } from '@ngrx/store';
 import { reducer } from './ngrx-store/reducers';
+import { TrendWidgetComponent } from './trend-widget/trend-widget.component';
 
 @NgModule({
   imports: [
@@ -22,7 +23,8 @@ import { reducer } from './ngrx-store/reducers';
     HelloComponent,
     HomeComponent,
     DataListenerComponent,
-    DataGeneratorComponent
+    DataGeneratorComponent,
+    TrendWidgetComponent
   ],
   bootstrap: [AppComponent],
   providers: [StoreDataService]
