@@ -1,6 +1,6 @@
 import { IMonitorData } from '../models/imonitor-data';
 import { IState } from './istate';
-import { Action, createReducer, on, props } from '@ngrx/store';
+import { Action, createReducer, on } from '@ngrx/store';
 import { addWidgetData } from './actions';
 
 export const widgetDataFeatureKey = 'monitorData';
@@ -22,7 +22,8 @@ const liveDataReducer = createReducer(
     const count = state.count + 1;
     const data = { ...state.data, [param.key]: param.value };
 
-    var paramCache: Array<IMonitorData> = state.cache[param.key];
+    const widgetCache = state.cache;
+    var paramCache: Array<IMonitorData> = widgetCache[param.key];
 
     if (paramCache === undefined) {
       paramCache = [param.value];
