@@ -12,6 +12,7 @@ export class DataGeneratorComponent implements OnInit {
   ngOnInit() {}
   onStartClicked() {
     console.log('Start writting...');
+    this.clear();
     if (this.intervalRef === undefined) {
       this.intervalRef = setInterval(() => {
         console.log('writting...');
@@ -20,6 +21,10 @@ export class DataGeneratorComponent implements OnInit {
   }
   onStopClicked() {
     console.log('Stop writting...');
+    this.clear();
+  }
+
+  private clear() {
     if (this.intervalRef !== undefined) {
       clearInterval(this.intervalRef);
       this.intervalRef = undefined;
