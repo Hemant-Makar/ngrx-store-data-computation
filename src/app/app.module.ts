@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
 import { HomeComponent } from './home/home.component';
 import { StoreDataService } from './ngrx-store/store-data.service';
-import { DataGeneratorComponent } from './data-generator/data-generator.component';
 import { StoreModule } from '@ngrx/store';
 import { reducer } from './ngrx-store/reducers';
 import { ListenerComponent } from './shared/listener/listener.component';
@@ -22,7 +21,6 @@ import { GeneratorComponent } from './shared/generator/generator.component';
     AppComponent,
     HelloComponent,
     HomeComponent,
-    DataGeneratorComponent,
     ListenerComponent,
     GeneratorComponent
   ],
