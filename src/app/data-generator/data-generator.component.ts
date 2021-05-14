@@ -17,7 +17,6 @@ export class DataGeneratorComponent implements OnInit {
     this.clear();
     if (this.intervalRef === undefined) {
       this.intervalRef = setInterval(() => {
-        console.log('writting...');
         const time = Date.now();
         const widget: IMonitorData = {
           id: 'A',
@@ -25,6 +24,7 @@ export class DataGeneratorComponent implements OnInit {
           time: time
         };
         this.storeService.setWidgetData(widget);
+        console.log('writting...', widget.value);
       }, 10000);
     }
   }
