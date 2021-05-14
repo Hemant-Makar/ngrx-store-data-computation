@@ -10,6 +10,7 @@ import { DataGeneratorComponent } from './data-generator/data-generator.componen
 import { StoreModule } from '@ngrx/store';
 import { reducer } from './ngrx-store/reducers';
 import { ListenerComponent } from './shared/listener/listener.component';
+import { GeneratorComponent } from './shared/generator/generator.component';
 
 @NgModule({
   imports: [
@@ -22,7 +23,8 @@ import { ListenerComponent } from './shared/listener/listener.component';
     HelloComponent,
     HomeComponent,
     DataGeneratorComponent,
-    ListenerComponent
+    ListenerComponent,
+    GeneratorComponent
   ],
   bootstrap: [AppComponent],
   providers: [StoreDataService]
