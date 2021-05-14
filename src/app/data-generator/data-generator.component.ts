@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { IMonitorData } from '../models/imonitor-data';
+import { StoreDataService } from '../ngrx-store/store-data.service';
 
 @Component({
   selector: 'app-data-generator',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DataGeneratorComponent implements OnInit {
   private intervalRef: number;
-  constructor() {}
+  constructor(private storeService: StoreDataService) {}
 
   ngOnInit() {}
   onStartClicked() {
@@ -16,6 +18,13 @@ export class DataGeneratorComponent implements OnInit {
     if (this.intervalRef === undefined) {
       this.intervalRef = setInterval(() => {
         console.log('writting...');
+        const time = Date.now();
+        const widget: IMonitorData = {
+          id: 'A',
+          value: Math.random() * 10,
+          time: time
+        };
+        this.storeService.setWidgetData(widget);
       }, 1000);
     }
   }
