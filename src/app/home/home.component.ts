@@ -10,10 +10,9 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {}
   onStartClicked() {
-console.log('Start writting...')
+    console.log('Start writting...');
   }
   onStopClicked() {
-    console.log('Stop writting...')
-
+    console.log('Stop writting...');
   }
 }
