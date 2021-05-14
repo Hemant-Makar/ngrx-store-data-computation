@@ -25,7 +25,7 @@ export class DataGeneratorComponent implements OnInit {
           time: time
         };
         this.storeService.setWidgetData(widget);
-      }, 1000);
+      }, 10000);
     }
   }
   onStopClicked() {
