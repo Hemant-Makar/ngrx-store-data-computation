@@ -9,10 +9,4 @@ export class HomeComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
-  onStartClicked() {
-    console.log('Start writting...');
-  }
-  onStopClicked() {
-    console.log('Stop writting...');
-  }
 }
