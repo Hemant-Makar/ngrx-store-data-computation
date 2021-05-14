@@ -20,14 +20,26 @@ const liveDataReducer = createReducer(
   initialState,
   on(addWidgetData, (state, param: QueryParam) => {
     const count = state.count + 1;
-    var data = { ...state.data, [param.key]: param.value };
-    const caches: Array<IMonitorData> = state.cache[param.key] || [];
-    caches.push(data[param.key]);
-    console.log(caches);
+    const data = { ...state.data, [param.key]: param.value };
+
+    var paramCache: Array<IMonitorData> = state.cache[param.key];
+
+    if (paramCache === undefined) {
+      paramCache = [param.value];
+      console.log('if', caches);
+    } else {
+      const record = param.value;
+      paramCache.push(record);
+      console.log('else', paramCache.length);
+    }
+    const cache = { ...state.cache, [param.key]: caches };
+    console.log(cache);
+    // cache[param.value.id] = caches;
     return {
       ...state,
       count: count,
-      data: data
+      data: data,
+      cache: cache
     };
   })
 );
