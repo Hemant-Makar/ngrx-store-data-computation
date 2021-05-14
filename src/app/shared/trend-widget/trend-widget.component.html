@@ -1,3 +1,5 @@
-<p>
-trend-widget works!
-</p>
+<h2>Listener</h2>
+<div *ngIf="dataAObservable$ | async as dataA">
+  <h2>A: {{dataA.length}}</h2>
+</div>
+<div>Count: {{countObservable$ | async}}</div>
