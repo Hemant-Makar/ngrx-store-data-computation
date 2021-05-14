@@ -19,9 +19,11 @@ export const initialState: IState = {
 const liveDataReducer = createReducer(
   initialState,
   on(addWidgetData, (state, param: QueryParam) => {
-    console.log(param);
-    var data = { ...state.data, [param.key]: param.value };
     const count = state.count + 1;
+    var data = { ...state.data, [param.key]: param.value };
+    const caches: Array<IMonitorData> = state.cache[param.key] || [];
+    caches.push(data[param.key]);
+    console.log(caches);
     return {
       ...state,
       count: count,
